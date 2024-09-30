@@ -8,3 +8,6 @@ In this project, a database is created in MySQL using data pulled from Sleeper a
 The dashboard link can be found here: https://public.tableau.com/app/profile/coleton.reitan7808/viz/OuahFantasyLeague/TeamDash
 
 ## Dashbaord ScreenShot
+
+![](Dash_Images/dash_ss.png)
+
