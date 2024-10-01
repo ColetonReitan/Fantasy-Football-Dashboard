@@ -9,7 +9,7 @@ The dashboard link can be found here: https://public.tableau.com/app/profile/col
 
 ### Dashbaord Screenshot
 
-![](Dash_Images/dash_ss.png)      
+![](dash_ss.png)      
 
 The dashboard can be filtered by Team and Week, allowing for more a more precise showing of data if needed. 
 
