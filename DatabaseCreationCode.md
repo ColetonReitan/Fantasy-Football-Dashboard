@@ -157,6 +157,56 @@ last_name varchar(255)
 );
 """
 
+create_combined_matchups_table_sql = """
+CREATE TABLE combined_matchups (
+    matchup_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    roster_id BIGINT,
+    week BIGINT,
+    year BIGINT,
+    player_id TEXT,
+    role TEXT,
+    points DOUBLE,
+    keeper INT,
+    team_name TEXT
+);
+"""
+
+create_positional_rankings_table_sql = """
+CREATE TABLE positional_rankings (
+    week BIGINT,
+    year BIGINT,
+    position VARCHAR(10),
+    team_name TEXT,
+    role TEXT,
+    total_points DOUBLE,
+    position_rank BIGINT UNSIGNED,
+    full_season_rank BIGINT UNSIGNED,
+    PRIMARY KEY (week, year, position, team_name, role)
+);
+"""
+
+create_team_weekly_performance_table_sql = """
+CREATE TABLE team_weekly_performance (
+    roster_id BIGINT,
+    team_name MEDIUMTEXT,
+    week BIGINT,
+    year BIGINT,
+    points_for DOUBLE,
+    points_against DOUBLE,
+    win BIGINT,
+    loss BIGINT,
+    wins_if_played_all DECIMAL(23,0),
+    losses_if_played_all DECIMAL(23,0),
+    point_diff DOUBLE,
+    head_to_head_record VARCHAR(85),
+    all_time_record VARCHAR(93),
+    cumulative_point_diff DOUBLE,
+    main_head_to_head VARCHAR(85),
+    main_cumulative VARCHAR(93),
+    PRIMARY KEY (roster_id, week, year)
+);
+"""
+
 # Function to execute SQL statements
 def create_table(sql, table_name):
     try:
@@ -168,15 +218,13 @@ def create_table(sql, table_name):
 # Create tables
 create_table(create_players_table_sql, 'Players')
 create_table(create_users_table_sql, 'Users')
-create_table(create_teams_table_sql, 'Teams')
 create_table(create_leagues_table_sql, 'Leagues')
-create_table(create_rosters_table_sql, 'Rosters')
-create_table(create_matchups_table_sql, 'Matchups')
-create_table(create_transactions_table_sql, 'Transactions')
-create_table(create_drafts_table_sql, 'Drafts')
-create_table(create_draft_picks_table_sql, 'Draft_Picks')
+create_table(create_combined_matchups_table_sql, 'Combined_Matchups')
 create_table(create_weekly_stats_table_sql, 'Weekly_Stats')
 create_table(create_aggregate_stats_table_sql, 'Aggregate_Stats')
+create_table(create_team_weekly_performance_table_sql, 'Team_Weekly_Performance')
+create_table(create_positional_rankings_table_sql, 'Positional_Rankings')
+
 
 # Close the cursor and connection
 cursor.close()
