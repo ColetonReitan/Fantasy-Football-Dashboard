@@ -17,11 +17,13 @@ The dashboard can be filtered by Team and Week, allowing for more a more precise
 This was a multi-step process that involved creating a database from scratch in MySQL, importing and cleaning data from Sleeper and FantasyPros, uploading data into the MySQL database, and finally creating the dashboard.  
 Following the dashboard creation, it is updated every week for new fantasy league data. 
 
+[Database Creation Code](DatabaseCreationCode.md)
+[Database Update Code](Updating_Dashboard.md)
+
 ### 1) Creating SQL Database
 SQL commands were ran in Jupyter Notebook with Python using the mysql.connector() package.
 
 The following tables were created in the database
-[To see complete code click here](DatabaseCreationCode.md)
 
 - Aggregate Stats    
       Holds player total season stats (in game stats such as rushing yards, passing yards, etc.)
